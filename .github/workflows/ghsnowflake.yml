@@ -8,12 +8,14 @@ on:
 env:
     LIQUIBASE_PRO_LICENSE_KEY: ${{ secrets.LB_PROKEY }}
     LIQUIBASE_COMMAND_CHANGELOG_FILE: ${{ secrets.LB_CLFILE }}
+    #${{ secrets.LB_USER }} 
+    #${{ secrets.LB_URL }}
+    #${{ secrets.LB_PASSWORD }}
+    #${{ secrets.LB_DRIVER }} 
      
      #volumes: 
      #  - /github/workspace/changelogs:/liquibase/changelog
      #options: -v $GITHUB_WORKSPACE/changes:/liquibase/changelog
-paths:
-  - 'Changelogs/**.xml'
 
 jobs:
   SnowflakeLBDocker:
@@ -24,7 +26,8 @@ jobs:
     - name: Run 'Liquibase status' 	    
       uses: docker://liquibase/liquibase:snowflake
       with:
-        args: --url=${{ secrets.LB_URL }} --username=${{ secrets.LB_USER }} --password=${{ secrets.LB_PASSWORD }} --driver=${{ secrets.LB_DRIVER }} status --verbose
+        #args: --url=${{ secrets.LB_URL }} --username=${{ secrets.LB_USER }} --password=${{ secrets.LB_PASSWORD }} --driver=${{ secrets.LB_DRIVER }} status --verbose
+        args: checks run
     
     #- name: Run 'Liquibase update' 
     #  uses: docker://liquibase/liquibase:latest
