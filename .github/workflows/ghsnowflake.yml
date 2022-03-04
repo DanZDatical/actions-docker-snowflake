@@ -18,4 +18,4 @@ jobs:
     - name: Run Liquibase status
       uses: docker://liquibase/liquibase:snowflake
       with:
-        args: --changeLogFile="Changelogs/snowflake1.xml" checks run
+        args: --changeLogFile="Changelogs\\snowflake1.xml" checks run
