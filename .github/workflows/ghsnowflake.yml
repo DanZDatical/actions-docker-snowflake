@@ -15,7 +15,7 @@ jobs:
     steps: 
     - uses: actions/checkout@v2
     
-    - name: Run 'Liquibase status' 	    
+    - name: Run Liquibase status
       uses: docker://liquibase/liquibase:snowflake
       with:
         args: checks run
