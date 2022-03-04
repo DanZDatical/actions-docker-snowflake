@@ -17,7 +17,7 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: Run 'Liquibase status' 	    
-      uses: docker://liquibase/liquibase:latest
+      uses: docker://liquibase/liquibase:4.7.1
       with:
         args: --url=${{ secrets.LB_URL }} --changeLogFile=Bchanges/snowflake1.xml --username=${{ secrets.LB_USER }} --password=${{ secrets.LB_PASSWORD }} --driver=${{ secrets.LB_DRIVER }} status --verbose
     
