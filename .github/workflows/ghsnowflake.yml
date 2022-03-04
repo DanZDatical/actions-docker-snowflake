@@ -12,8 +12,8 @@ env:
      #volumes: 
      #  - /github/workspace/changelogs:/liquibase/changelog
      #options: -v $GITHUB_WORKSPACE/changes:/liquibase/changelog
-     #paths:
-     # - 'changes/**'
+paths:
+  - 'Changelogs/**.xml'
 
 jobs:
   SnowflakeLBDocker:
