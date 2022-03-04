@@ -19,9 +19,9 @@ jobs:
     - name: Run 'Liquibase status' 	    
       uses: docker://liquibase/liquibase:latest
       with:
-        args: --url=${{ secrets.LB_URL }} --changeLogFile=./changes/snowflake1.xml --username=${{ secrets.LB_USER }} --password=${{ secrets.LB_PASSWORD }} --driver=${{ secrets.LB_DRIVER }} status --verbose
+        args: --url=${{ secrets.LB_URL }} --changeLogFile=changes/snowflake1.xml --username=${{ secrets.LB_USER }} --password=${{ secrets.LB_PASSWORD }} --driver=${{ secrets.LB_DRIVER }} status --verbose
     
     - name: Run 'Liquibase update' 
       uses: docker://liquibase/liquibase:latest
       with:
-        args: --url=${{ secrets.LB_URL }} --changeLogFile=./changes/snowflake1.xml --username=${{ secrets.LB_USER }} --password=${{ secrets.LB_PASSWORD }} --driver=${{ secrets.LB_DRIVER }} update
+        args: --url=${{ secrets.LB_URL }} --changeLogFile=changes/snowflake1.xml --username=${{ secrets.LB_USER }} --password=${{ secrets.LB_PASSWORD }} --driver=${{ secrets.LB_DRIVER }} update
