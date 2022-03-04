@@ -4,8 +4,9 @@ on:
   workflow_dispatch:
    push:
      branches: [ main ]
-     volumes: 
-       - /github/workspace/changelogs:/liquibase/changelog
+     #volumes: 
+     #  - /github/workspace/changelogs:/liquibase/changelog
+     options: -v /github/workspace/changelogs:/liquibase/changelog:rw
 
 jobs:
   SnowflakeLBDocker:
