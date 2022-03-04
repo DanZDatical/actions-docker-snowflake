@@ -23,7 +23,8 @@ jobs:
     - name: Run 'Liquibase status' 	    
       uses: docker://liquibase/liquibase:snowflake
       with:
-        args: --url=${{ secrets.LB_URL }} --username=${{ secrets.LB_USER }} --password=${{ secrets.LB_PASSWORD }} --driver=${{ secrets.LB_DRIVER }} status --verbose
+        #args: --url=${{ secrets.LB_URL }} --username=${{ secrets.LB_USER }} --password=${{ secrets.LB_PASSWORD }} --driver=${{ secrets.LB_DRIVER }} status --verbose
+        args: --url=${{ secrets.LB_URL }} --username=${{ secrets.LB_USER }} --password=${{ secrets.LB_PASSWORD }} status --verbose
     
     #- name: Run 'Liquibase update' 
     #  uses: docker://liquibase/liquibase:latest
