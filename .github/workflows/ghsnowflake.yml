@@ -4,8 +4,6 @@ on:
   workflow_dispatch:
    push:
      branches: [ main ]
-   paths:
-     - 'Changelogs/**.xml'
 
 env:
     LIQUIBASE_PRO_LICENSE_KEY: ${{ secrets.LB_PROKEY }}
