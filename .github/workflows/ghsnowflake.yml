@@ -1,0 +1,22 @@
+name: Liquibase_Docker_GitHub-Hosted
+
+on:
+  workflow_dispatch:
+   push:
+     branches: [ main ]
+
+jobs:
+  SnowflakeLBDocker:
+    runs-on: ubuntu-latest
+    steps: 
+    - uses: actions/checkout@v2
+    
+    - name: Run 'Liquibase status' 	    
+      uses: docker://liquibase/liquibase:latest
+      with:
+        args: --url=${{ secrets.LB_URL }} --changeLogFile=${{ secrets.LB_CLFILE }} --username=${{ secrets.LB_USER }} --password=${{ secrets.LB_PASSWORD }} --driver=${{ secrets.LB_DRIVER }} status --verbose
+    
+    - name: Run 'Liquibase update' 
+      uses: docker://liquibase/liquibase:latest
+      with:
+        args: --url=${{ secrets.LB_URL }} --changeLogFile=${{ secrets.LB_CLFILE }} --username=${{ secrets.LB_USER }} --password=${{ secrets.LB_PASSWORD }} --driver=${{ secrets.LB_DRIVER }} update
