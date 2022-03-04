@@ -4,6 +4,11 @@ on:
   workflow_dispatch:
    push:
      branches: [ main ]
+
+   env:
+     LIQUIBASE_PRO_LICENSE_KEY: ${{ LB_PROKEY }}
+     LIQUIBASE_COMMAND_CHANGELOG_FILE: ${{ secrets.LB_CLFILE }}
+     
      #volumes: 
      #  - /github/workspace/changelogs:/liquibase/changelog
      #options: -v $GITHUB_WORKSPACE/changes:/liquibase/changelog
@@ -19,9 +24,9 @@ jobs:
     - name: Run 'Liquibase status' 	    
       uses: docker://liquibase/liquibase:4.7.1
       with:
-        args: --url=${{ secrets.LB_URL }} --changeLogFile=Bchanges/snowflake1.xml --username=${{ secrets.LB_USER }} --password=${{ secrets.LB_PASSWORD }} --driver=${{ secrets.LB_DRIVER }} status --verbose
+        args: --url=${{ secrets.LB_URL }} --username=${{ secrets.LB_USER }} --password=${{ secrets.LB_PASSWORD }} --driver=${{ secrets.LB_DRIVER }} status --verbose
     
-    - name: Run 'Liquibase update' 
-      uses: docker://liquibase/liquibase:latest
-      with:
-        args: --url=${{ secrets.LB_URL }} --changeLogFile=Bchanges/snowflake1.xml --username=${{ secrets.LB_USER }} --password=${{ secrets.LB_PASSWORD }} --driver=${{ secrets.LB_DRIVER }} update
+    #- name: Run 'Liquibase update' 
+    #  uses: docker://liquibase/liquibase:latest
+    #  with:
+    #    args: --url=${{ secrets.LB_URL }} --changeLogFile=Bchanges/snowflake1.xml --username=${{ secrets.LB_USER }} --password=${{ secrets.LB_PASSWORD }} --driver=${{ secrets.LB_DRIVER }} update
