@@ -6,7 +6,7 @@ on:
      branches: [ main ]
      #volumes: 
      #  - /github/workspace/changelogs:/liquibase/changelog
-     options: -v /github/workspace/changelogs:/liquibase/changelog:rw
+     options: -v /home/runner/work/actions-docker-snowflake/actions-docker-snowflake/changelogs:/liquibase/changelog:rw
 
 jobs:
   SnowflakeLBDocker:
