@@ -6,7 +6,7 @@ on:
      branches: [ main ]
 
    env:
-     LIQUIBASE_PRO_LICENSE_KEY: ${{ LB_PROKEY }}
+     LIQUIBASE_PRO_LICENSE_KEY: ${{ secrets.LB_PROKEY }}
      LIQUIBASE_COMMAND_CHANGELOG_FILE: ${{ secrets.LB_CLFILE }}
      
      #volumes: 
