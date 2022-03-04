@@ -16,10 +16,6 @@ env:
      #volumes: 
      #  - /github/workspace/changelogs:/liquibase/changelog
      #options: -v $GITHUB_WORKSPACE/changes:/liquibase/changelog
-<<<<<<< HEAD
-=======
-
->>>>>>> ad837ac368cacb1965f9ca8927f2eca4cf64bfc6
 
 jobs:
   SnowflakeLBDocker:
@@ -31,11 +27,9 @@ jobs:
       uses: docker://liquibase/liquibase:snowflake
       with:
         #args: --url=${{ secrets.LB_URL }} --username=${{ secrets.LB_USER }} --password=${{ secrets.LB_PASSWORD }} --driver=${{ secrets.LB_DRIVER }} status --verbose
-<<<<<<< HEAD
         args: checks run
-=======
-        args: --url=${{ secrets.LB_URL }} --username=${{ secrets.LB_USER }} --password=${{ secrets.LB_PASSWORD }} status --verbose
->>>>>>> ad837ac368cacb1965f9ca8927f2eca4cf64bfc6
+        #args: --url=${{ secrets.LB_URL }} --username=${{ secrets.LB_USER }} --password=${{ secrets.LB_PASSWORD }} status --verbose
+
     
     #- name: Run 'Liquibase update' 
     #  uses: docker://liquibase/liquibase:latest
